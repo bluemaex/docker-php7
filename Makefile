@@ -1,5 +1,5 @@
 NAME = bluemaex/php7-nginx
-VERSION = 0.0.7
+VERSION = 0.0.8
 
 .PHONY: build run shell tag release
 
@@ -16,6 +16,5 @@ tag:
 	docker tag $(NAME):$(VERSION) $(NAME):latest
 
 release: build tag
-	docker push $(NAME)
 	git tag $(VERSION)
-	git push origin $(VERSION)
+	git push --tags
